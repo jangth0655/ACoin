@@ -54,7 +54,11 @@ export const darkTheme: DefaultTheme = {
     xxxl: "3rem",
     xxxxl: "3.5rem",
   },
-  transition: "all 180ms cubic-bezier(0.4, 0, 0.2, 1)",
+  transition: {
+    sm: "all 150ms cubic-bezier(0.4, 0, 0.2, 1)",
+    md: "all 180ms cubic-bezier(0.4, 0, 0.2, 1)",
+    lg: "all 200ms cubic-bezier(0.4, 0, 0.2, 1)",
+  },
   responsive: {
     sm: "640px",
     md: "768px",
@@ -118,7 +122,11 @@ export const lightTheme: DefaultTheme = {
     xxxl: "3rem",
     xxxxl: "3.5rem",
   },
-  transition: "all 180ms cubic-bezier(0.4, 0, 0.2, 1)",
+  transition: {
+    sm: "all 150ms cubic-bezier(0.4, 0, 0.2, 1)",
+    md: "all 180ms cubic-bezier(0.4, 0, 0.2, 1)",
+    lg: "all 200ms cubic-bezier(0.4, 0, 0.2, 1)",
+  },
   responsive: {
     sm: "640px",
     md: "768px",
@@ -159,9 +167,11 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1.2;
 	font-family: 'Source Sans Pro', sans-serif;
+  background-color: ${(props) => props.theme.color.bg};
 }
 a { 
 	text-decoration: none;
+  color: inherit;
 }
 ol, ul {
 	list-style: none;

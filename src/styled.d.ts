@@ -55,7 +55,11 @@ declare module "styled-components" {
       xxxl: string;
       xxxxl: string;
     };
-    transition: string;
+    transition: {
+      sm: string;
+      md: sring;
+      lg: string;
+    };
     responsive: {
       sm: string;
       md: string;

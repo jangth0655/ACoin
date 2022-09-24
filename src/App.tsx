@@ -2,11 +2,11 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import { ThemeProvider } from "styled-components";
 import Router from "./routes/Router";
-import { darkTheme, GlobalStyle } from "./theme";
+import { darkTheme, GlobalStyle, lightTheme } from "./theme";
 
 function App() {
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={lightTheme}>
       <Router />
       <GlobalStyle />
       <Helmet>

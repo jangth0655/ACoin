@@ -2,7 +2,7 @@ import MainLayout from "../components/MainLayout";
 
 const Coins = () => {
   return (
-    <MainLayout>
+    <MainLayout title="Main">
       <h1>Coins</h1>
     </MainLayout>
   );
