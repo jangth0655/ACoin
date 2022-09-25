@@ -168,6 +168,7 @@ body {
 	line-height: 1.2;
 	font-family: 'Source Sans Pro', sans-serif;
   background-color: ${(props) => props.theme.color.bg};
+  color: ${(props) => props.theme.color.textColor.md};
 }
 a { 
 	text-decoration: none;
@@ -188,4 +189,11 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+button,input { 
+  background-color:transparent;
+  border: none;
+  outline: none;
+}
+
+
 `;
