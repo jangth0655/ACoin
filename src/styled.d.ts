@@ -25,7 +25,12 @@ declare module "styled-components" {
         lg: string;
         xl: string;
       };
-      bg: string;
+      bg: {
+        md: string; // 700
+        lg: string; // 800
+        xl: string; // 900
+        full: string;
+      };
     };
     borderRadius: {
       sm: string;

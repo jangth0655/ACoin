@@ -8,9 +8,10 @@ const CoinColumn = styled.div`
   align-items: center;
   margin-bottom: ${(props) => props.theme.mp.xxxl};
   padding: ${(props) => props.theme.mp.md} 4rem;
-  background-color: white;
+  background-color: ${(props) => props.theme.color.bg.md};
   border-radius: ${(props) => props.theme.borderRadius.xl};
-  box-shadow: ${(props) => props.theme.shadow.md};
+  box-shadow: ${(props) => props.theme.shadow.xl};
+  color: ${(props) => props.theme.color.textColor.md};
   &:hover {
     transform: translateY(-5px);
     cursor: pointer;

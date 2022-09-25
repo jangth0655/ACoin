@@ -2,12 +2,15 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchCoinOHLC } from "../api";
 import { CoinOHLCV } from "../interface";
 import ApexChart from "react-apexcharts";
+import { isDarkAtom } from "../atoms";
+import { useRecoilValue } from "recoil";
 
 interface ChartProps {
   coinId?: string;
 }
 
 const Chart: React.FC<ChartProps> = ({ coinId }) => {
+  const isDark = useRecoilValue(isDarkAtom);
   const { data: ohlcvData, isLoading } = useQuery<CoinOHLCV[]>(
     ["ohlcv", coinId],
     () => fetchCoinOHLC(coinId)
@@ -38,7 +41,7 @@ const Chart: React.FC<ChartProps> = ({ coinId }) => {
           ]}
           options={{
             theme: {
-              mode: "light",
+              mode: isDark ? "dark" : "light",
             },
             chart: {
               height: 500,

@@ -8,7 +8,7 @@ interface PositiveWithNegativeProps {
 }
 
 const PositiveWithNegativeIcon = styled.div`
-  color: ${(props) => props.theme.color.activeColor.lg};
+  color: ${(props) => props.theme.color.activeColor.sm};
   font-size: ${(props) => props.theme.textSize.xl};
   @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
     font-size: ${(props) => props.theme.textSize.sm};

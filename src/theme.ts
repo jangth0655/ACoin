@@ -2,7 +2,12 @@ import { createGlobalStyle, DefaultTheme } from "styled-components";
 
 export const darkTheme: DefaultTheme = {
   color: {
-    bg: "rgb(24 24 27)",
+    bg: {
+      md: "rgb(63 63 70)",
+      lg: "rgb(39 39 42)",
+      xl: "rgb(24 24 27)",
+      full: "black",
+    },
     textColor: {
       xs: "rgb(161 161 170)", //400
       sm: "rgb(113 113 122)", // 500
@@ -69,7 +74,12 @@ export const darkTheme: DefaultTheme = {
 
 export const lightTheme: DefaultTheme = {
   color: {
-    bg: "rgb(244 244 245)",
+    bg: {
+      md: "rgb(244 244 245)", // 100
+      lg: "rgb(228 228 231)", //  200
+      xl: "rgb(212 212 216)", // 300
+      full: "white",
+    },
     textColor: {
       xs: "rgb(161 161 170)", //400
       sm: "rgb(113 113 122)", // 500
@@ -167,7 +177,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1.2;
 	font-family: 'Source Sans Pro', sans-serif;
-  background-color: ${(props) => props.theme.color.bg};
+  background-color: ${(props) => props.theme.color.bg.lg};
   color: ${(props) => props.theme.color.textColor.md};
 }
 a { 

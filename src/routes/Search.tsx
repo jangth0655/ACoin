@@ -22,7 +22,7 @@ const Form = styled.form`
 
 const Input = styled.input`
   padding: ${(props) => props.theme.mp.sm};
-  border: 2px solid ${(props) => props.theme.color.textColor.xs};
+  border: 1.5px solid ${(props) => props.theme.color.textColor.xs};
   border-radius: ${(props) => props.theme.borderRadius.md};
   margin-right: ${(props) => props.theme.mp.sm};
   width: 50%;
@@ -56,7 +56,6 @@ const Search = () => {
   );
 
   const onValid = (fromData: SearchForm) => {
-    console.log(fromData);
     setKeyword(fromData.keyword);
     reset();
   };

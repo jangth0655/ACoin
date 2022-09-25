@@ -11,8 +11,12 @@ import { Link, useMatch } from "react-router-dom";
 import styled from "styled-components";
 
 import { FaArrowUp } from "react-icons/fa";
+import { FaMoon } from "react-icons/fa";
+import { FaSun } from "react-icons/fa";
 import { Main, Navbar } from "./Shared/Shared";
 import MainTitle from "./Shared/MainTitle";
+import { useRecoilState } from "recoil";
+import { isDarkAtom } from "../atoms";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -89,6 +93,32 @@ const ScrollUpMark = styled(motion.div)`
   }
 `;
 
+const DarkModeBox = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: ${(props) => props.theme.mp.sm};
+  right: ${(props) => props.theme.mp.md};
+  padding: ${(props) => props.theme.mp.xs};
+  width: 5rem;
+  box-shadow: ${(props) => props.theme.shadow.lg};
+  border-radius: ${(props) => props.theme.borderRadius.md};
+  background-color: ${(props) => props.theme.color.bg.md};
+`;
+
+const DarkMod = styled(motion.div)``;
+const LighMod = styled(motion.div)``;
+
+const DarkModeButton = styled(motion.div)`
+  width: ${(props) => props.theme.mp.md};
+  height: ${(props) => props.theme.mp.md};
+  color: ${(props) => props.theme.color.textColor.md};
+  cursor: pointer;
+`;
+
+const LightModeButton = styled(DarkModeButton)``;
+
 const scrollYVar: Variants = {
   top: {
     opacity: 0,
@@ -103,6 +133,7 @@ const MainLayout: React.FC<LayoutProps> = ({ children, title }) => {
   const { scrollY } = useScroll();
   const scrollAnimation = useAnimation();
   const titleRef = useRef<HTMLDivElement>(null);
+  const [isDark, setIsDark] = useRecoilState(isDarkAtom);
 
   useEffect(() => {
     return scrollY.onChange((e) => {
@@ -118,14 +149,37 @@ const MainLayout: React.FC<LayoutProps> = ({ children, title }) => {
     titleRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  const handleDarkMode = () => {
+    setIsDark((prev) => !prev);
+  };
+
   return (
     <Section>
       <Helmet>
         <title>{`${title} | ACoin`}</title>
       </Helmet>
+
+      <DarkModeBox>
+        <DarkMod onClick={handleDarkMode}>
+          {isDark ? (
+            <DarkModeButton layoutId="dark">
+              <FaSun />
+            </DarkModeButton>
+          ) : null}
+        </DarkMod>
+        <LighMod onClick={handleDarkMode}>
+          {isDark ? null : (
+            <LightModeButton layoutId="dark">
+              <FaMoon />
+            </LightModeButton>
+          )}
+        </LighMod>
+      </DarkModeBox>
+
       <div ref={titleRef}>
         <MainTitle title="A Coin Tracker" />
       </div>
+
       <Navbar>
         <AnimatePresence>
           <NavbarAllPage>

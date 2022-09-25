@@ -11,7 +11,7 @@ const Title = styled.div`
   padding: ${(props) => props.theme.mp.lg};
   text-transform: uppercase;
   font-weight: 700;
-  color: ${(props) => props.theme.color.activeColor.xl};
+  color: ${(props) => props.theme.color.activeColor.md};
   font-size: ${(props) => props.theme.textSize.xxxl};
   @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
     font-size: ${(props) => props.theme.textSize.xxl};

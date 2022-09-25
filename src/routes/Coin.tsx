@@ -57,11 +57,11 @@ const Value = styled.span`
   font-weight: 700;
   font-size: ${(props) => props.theme.textSize.xl};
   @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
-    font-size: ${(props) => props.theme.textSize.sm};
+    font-size: ${(props) => props.theme.textSize.md};
   }
 `;
 const PriceTimeChangeValue = styled(Value)`
-  color: red;
+  color: rgb(244 63 94);
   margin-right: ${(props) => props.theme.mp.sm};
 `;
 
