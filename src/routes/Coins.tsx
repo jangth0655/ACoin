@@ -35,12 +35,18 @@ const Border = styled.div`
 `;
 
 const Coins = () => {
-  const { data, isLoading } = useQuery<CoinList[]>(["coinList"], fetchCoinList);
+  const { data, isLoading } = useQuery<CoinList[]>(
+    ["coinList"],
+    fetchCoinList,
+    {
+      staleTime: 50000,
+    }
+  );
 
   return (
     <MainLayout title="Main">
       {isLoading ? (
-        <span>Loading...</span>
+        "Loading"
       ) : (
         <CoinContainer>
           <CoinInfoTitle>
