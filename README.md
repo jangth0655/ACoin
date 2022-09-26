@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=400&section=header&text=Finder&fontSize=70)
+![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=400&section=header&text=ACoin&fontSize=70)
 
 <div>
     <div>
