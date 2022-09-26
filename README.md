@@ -3,8 +3,8 @@
 <div>
     <div>
       <img style="border-radius:10px" height="70" src="./src/image/logo.png" />  
-      <a display="block" href="https://finder-web.netlify.app/" >
-      https://finder-web.netlify.app/
+      <a display="block" href="https://acoin.netlify.app" >
+      https://acoin.netlify.app
     </a>
     </div>
     <br />
