@@ -105,16 +105,26 @@ const DarkModeBox = styled(motion.div)`
   box-shadow: ${(props) => props.theme.shadow.lg};
   border-radius: ${(props) => props.theme.borderRadius.md};
   background-color: ${(props) => props.theme.color.bg.md};
+
+  @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
+    width: 3rem;
+  }
 `;
 
-const DarkMod = styled(motion.div)``;
-const LighMod = styled(motion.div)``;
+const DarkMode = styled(motion.div)``;
+const LightMode = styled(motion.div)``;
 
 const DarkModeButton = styled(motion.div)`
   width: ${(props) => props.theme.mp.md};
   height: ${(props) => props.theme.mp.md};
   color: ${(props) => props.theme.color.textColor.md};
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
+    font-size: ${(props) => props.theme.textSize.xs};
+  }
 `;
 
 const LightModeButton = styled(DarkModeButton)``;
@@ -160,20 +170,20 @@ const MainLayout: React.FC<LayoutProps> = ({ children, title }) => {
       </Helmet>
 
       <DarkModeBox>
-        <DarkMod onClick={handleDarkMode}>
+        <DarkMode onClick={handleDarkMode}>
           {isDark ? (
             <DarkModeButton layoutId="dark">
               <FaSun />
             </DarkModeButton>
           ) : null}
-        </DarkMod>
-        <LighMod onClick={handleDarkMode}>
+        </DarkMode>
+        <LightMode onClick={handleDarkMode}>
           {isDark ? null : (
             <LightModeButton layoutId="dark">
               <FaMoon />
             </LightModeButton>
           )}
-        </LighMod>
+        </LightMode>
       </DarkModeBox>
 
       <div ref={titleRef}>

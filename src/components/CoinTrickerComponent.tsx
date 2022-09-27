@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import { Suspense } from "react";
 import styled from "styled-components";
 import { fetchCoinTricker } from "../api";
 import { CoinTricker } from "../interface";
@@ -74,6 +73,7 @@ const CoinTrickerComponent: React.FC<CoinTrickerProps> = ({ coinId }) => {
     return currency?.toLocaleString("en-US", {
       style: "currency",
       currency: "USD",
+      notation: "compact",
     });
   };
 
@@ -88,59 +88,57 @@ const CoinTrickerComponent: React.FC<CoinTrickerProps> = ({ coinId }) => {
 
   return (
     <InfoCol>
-      <Suspense fallback={<h1>Loading...</h1>}>
-        <CoinTimePriceChange>
-          <PriceBox>
-            <DetailNameSpan>Price</DetailNameSpan>
-            <PriceValue>
-              {formatCurrency(coinTrickerData?.quotes?.USD?.price)}
-            </PriceValue>
-          </PriceBox>
+      <CoinTimePriceChange>
+        <PriceBox>
+          <DetailNameSpan>Price</DetailNameSpan>
+          <PriceValue>
+            {formatCurrency(coinTrickerData?.quotes?.USD?.price)}
+          </PriceValue>
+        </PriceBox>
 
-          <PriceTimeChange>
-            <DetailNameSpan>6 hour</DetailNameSpan>
-            <ValueBox>
-              <PriceTimeChangeValue>
-                {halfDayPriceTimeChange}
-              </PriceTimeChangeValue>
-              <PositiveWithNegative value={halfDayPriceTimeChange} />
-            </ValueBox>
-          </PriceTimeChange>
-          <PriceTimeChange>
-            <DetailNameSpan>1 day</DetailNameSpan>
-            <ValueBox>
-              <PriceTimeChangeValue>
-                {coinTrickerData?.quotes.USD.percent_change_24h}
-              </PriceTimeChangeValue>
-              <PositiveWithNegative value={dayPriceTimeChange} />
-            </ValueBox>
-          </PriceTimeChange>
-          <PriceTimeChange>
-            <DetailNameSpan>1 week</DetailNameSpan>
-            <ValueBox>
-              <PriceTimeChangeValue>
-                {coinTrickerData?.quotes.USD.percent_change_7d}
-              </PriceTimeChangeValue>
-              <PositiveWithNegative value={weekPriceTimeChange} />
-            </ValueBox>
-          </PriceTimeChange>
-        </CoinTimePriceChange>
+        <PriceTimeChange>
+          <DetailNameSpan>6 hour</DetailNameSpan>
+          <ValueBox>
+            <PriceTimeChangeValue>
+              {halfDayPriceTimeChange}
+            </PriceTimeChangeValue>
+            <PositiveWithNegative value={halfDayPriceTimeChange} />
+          </ValueBox>
+        </PriceTimeChange>
+        <PriceTimeChange>
+          <DetailNameSpan>1 day</DetailNameSpan>
+          <ValueBox>
+            <PriceTimeChangeValue>
+              {coinTrickerData?.quotes.USD.percent_change_24h}
+            </PriceTimeChangeValue>
+            <PositiveWithNegative value={dayPriceTimeChange} />
+          </ValueBox>
+        </PriceTimeChange>
+        <PriceTimeChange>
+          <DetailNameSpan>1 week</DetailNameSpan>
+          <ValueBox>
+            <PriceTimeChangeValue>
+              {coinTrickerData?.quotes.USD.percent_change_7d}
+            </PriceTimeChangeValue>
+            <PositiveWithNegative value={weekPriceTimeChange} />
+          </ValueBox>
+        </PriceTimeChange>
+      </CoinTimePriceChange>
 
-        <CoinCurrentPrice>
-          <PriceBox>
-            <DetailNameSpan>Market cap</DetailNameSpan>
-            <PriceValue>
-              {formatCurrency(coinTrickerData?.quotes.USD.market_cap)}
-            </PriceValue>
-          </PriceBox>
-          <PriceBox>
-            <DetailNameSpan>24h volume</DetailNameSpan>
-            <PriceValue>
-              {formatCurrency(coinTrickerData?.quotes.USD.volume_24h)}
-            </PriceValue>
-          </PriceBox>
-        </CoinCurrentPrice>
-      </Suspense>
+      <CoinCurrentPrice>
+        <PriceBox>
+          <DetailNameSpan>Market cap</DetailNameSpan>
+          <PriceValue>
+            {formatCurrency(coinTrickerData?.quotes.USD.market_cap)}
+          </PriceValue>
+        </PriceBox>
+        <PriceBox>
+          <DetailNameSpan>24h volume</DetailNameSpan>
+          <PriceValue>
+            {formatCurrency(coinTrickerData?.quotes.USD.volume_24h)}
+          </PriceValue>
+        </PriceBox>
+      </CoinCurrentPrice>
     </InfoCol>
   );
 };

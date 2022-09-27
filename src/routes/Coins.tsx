@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import styled from "styled-components";
 import { fetchCoinList } from "../api";
 import CoinItem from "../components/CoinItem";
+import Loading from "../components/Loading";
 import MainLayout from "../components/MainLayout";
 import { CoinList } from "../interface";
 
@@ -46,7 +47,7 @@ const Coins = () => {
   return (
     <MainLayout title="Main">
       {isLoading ? (
-        "Loading"
+        <Loading />
       ) : (
         <CoinContainer>
           <CoinInfoTitle>

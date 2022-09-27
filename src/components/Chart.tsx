@@ -4,14 +4,24 @@ import { CoinOHLCV } from "../interface";
 import ApexChart from "react-apexcharts";
 import { isDarkAtom } from "../atoms";
 import { useRecoilValue } from "recoil";
+import styled from "styled-components";
 
 interface ChartProps {
   coinId?: string;
 }
 
+const ChartSection = styled.section<{ isDark: boolean }>`
+  padding: ${(props) => props.theme.mp.md};
+  border: 1px solid
+    ${(props) =>
+      props.isDark ? "transparent" : props.theme.color.textColor.xs};
+  border-radius: ${(props) => props.theme.borderRadius.md};
+  box-shadow: ${(props) => props.theme.shadow.md};
+`;
+
 const Chart: React.FC<ChartProps> = ({ coinId }) => {
   const isDark = useRecoilValue(isDarkAtom);
-  const { data: ohlcvData, isLoading } = useQuery<CoinOHLCV[]>(
+  const { data: ohlcvData } = useQuery<CoinOHLCV[]>(
     ["ohlcv", coinId],
     () => fetchCoinOHLC(coinId),
     { suspense: true }
@@ -28,10 +38,8 @@ const Chart: React.FC<ChartProps> = ({ coinId }) => {
     ],
   }));
 
-  return isLoading ? (
-    <span>Loading...</span>
-  ) : (
-    <div>
+  return (
+    <ChartSection isDark={isDark}>
       <ApexChart
         type="candlestick"
         series={[
@@ -76,7 +84,7 @@ const Chart: React.FC<ChartProps> = ({ coinId }) => {
           },
         }}
       />
-    </div>
+    </ChartSection>
   );
 };
 export default Chart;
