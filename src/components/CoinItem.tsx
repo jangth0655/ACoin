@@ -7,7 +7,7 @@ const CoinColumn = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: ${(props) => props.theme.mp.xxxl};
-  padding: ${(props) => props.theme.mp.md} 4rem;
+  padding: ${(props) => props.theme.mp.md};
   background-color: ${(props) => props.theme.color.bg.md};
   border-radius: ${(props) => props.theme.borderRadius.xl};
   box-shadow: ${(props) => props.theme.shadow.xl};
@@ -23,9 +23,9 @@ const LogoWithName = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30%;
+  width: 100%;
   @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
-    width: 50%;
+    justify-content: flex-start;
   }
 `;
 
@@ -34,6 +34,10 @@ const Logo = styled.div`
   width: ${(props) => props.theme.mp.xxxl};
   height: ${(props) => props.theme.mp.xxxl};
   margin-right: ${(props) => props.theme.mp.sm};
+  @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
+    width: ${(props) => props.theme.mp.xxl};
+    height: ${(props) => props.theme.mp.xxl};
+  }
 `;
 const Image = styled.img`
   position: absolute;
@@ -42,7 +46,7 @@ const Image = styled.img`
 `;
 const Name = styled.span`
   @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
-    font-size: ${(props) => props.theme.textSize.sm};
+    font-size: ${(props) => props.theme.textSize.xs};
   }
 `;
 

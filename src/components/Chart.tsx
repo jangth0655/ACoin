@@ -71,7 +71,13 @@ const Chart: React.FC<ChartProps> = ({ coinId }) => {
           },
           yaxis: {
             tooltip: {
-              enabled: false,
+              enabled: true,
+            },
+            labels: {
+              formatter: (value) => `$ ${value.toFixed(0)}`,
+              style: {
+                fontSize: "10px",
+              },
             },
           },
           tooltip: {

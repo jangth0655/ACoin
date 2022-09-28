@@ -11,8 +11,8 @@ const LoadingBox = styled.div`
   height: 4rem;
 `;
 const LoadingCircle = styled(motion.div)`
-  width: 1rem;
-  height: 1rem;
+  width: 1.3rem;
+  height: 1.3rem;
   border-radius: 50%;
 `;
 const LoadingSpan = styled.span`
@@ -24,13 +24,14 @@ const LoadingSpan = styled.span`
 const loadingVar: Variants = {
   initial: (isDark: boolean) => ({
     borderTop: "2px",
+    borderRight: "2px",
     borderColor: isDark ? "white" : "black",
     borderStyle: "solid",
   }),
   animate: {
     transition: {
       repeat: Infinity,
-      duration: 0.7,
+      duration: 0.8,
       ease: "linear",
     },
     rotate: 360,
